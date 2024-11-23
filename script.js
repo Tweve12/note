@@ -10,6 +10,8 @@ function addNewTask(){
         return;
     }
     let newList = document.querySelector(".template").cloneNode(true).content;
+    let newListBtn = newList.querySelector(".task__delete");
+    newListBtn.addEventListener("click", deleteList)
     newList.querySelector(".task__text").value = value;
     taskList.append(newList);
     formTask.value = "";
@@ -20,5 +22,7 @@ btn.addEventListener("click", addNewTask);
 
 
 function deleteList(e){
-    console.log(e);
+    e.target.parentElement.remove();
 }
+
+
